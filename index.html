@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ucapan Spesial</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: black;
+      color: white;
+      font-family: Arial, sans-serif;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* Efek bintang */
+    .stars {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      overflow: hidden;
+    }
+    .star {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: white;
+      border-radius: 50%;
+      animation: twinkle 2s infinite;
+    }
+    @keyframes twinkle {
+      0%, 100% { opacity: 0; }
+      50% { opacity: 1; }
+    }
+
+    /* Form password */
+    .password-box {
+      z-index: 2;
+      text-align: center;
+    }
+    .password-box input {
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 5px;
+      border: none;
+      margin-top: 10px;
+    }
+    .password-box button {
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 5px;
+      border: none;
+      margin-left: 10px;
+      cursor: pointer;
+      background: pink;
+    }
+
+    /* Konten */
+    .container {
+      display: none; /* disembunyikan dulu */
+      align-items: center;
+      justify-content: center;
+      width: 80%;
+      height: 80%;
+      position: relative;
+      z-index: 2;
+    }
+    .text {
+      width: 50%;
+      height: 100%;
+      overflow-y: auto;
+      padding: 20px;
+    }
+    .photo {
+      width: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .photo video {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(255,255,255,0.6);
+    }
+    .photo img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(255,255,255,0.6);
+    }
+
+    /* Love-love */
+    .love {
+      position: absolute;
+      width: 60px;
+      height: 60px;
+      opacity: 0;
+      animation: floatLove 4s linear forwards;
+      z-index: 1;
+    }
+    @keyframes floatLove {
+      0% { transform: translateY(100vh) scale(0.5); opacity: 0; }
+      20% { opacity: 1; }
+      80% { opacity: 1; }
+      100% { transform: translateY(-10vh) scale(1.2); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+    <!-- Audio background -->
+<audio id="bgMusic" src="assets/lagu.mp3" autoplay loop></audio>
+
+  <!-- Bintang -->
+  <div class="stars"></div>
+
+  <!-- Form password -->
+  <div class="password-box" id="passwordBox">
+    <h2>Masukkan Password</h2>
+    <input type="password" id="passwordInput" placeholder="Password...">
+    <button onclick="checkPassword()">OK</button>
+    <p id="errorMsg" style="color:red; display:none;">Password salah!</p>
+  </div>
+
+  <!-- Konten --> <div class="container" id="contentBox"> <div class="text"> <h1>Hai, HASAN BASRI NASUTION</h1> <p> <br>Happy Birthday sayang🌸<br> <br> Semoga selalu bahagia, sehat, dan tersenyum 💖<br> <P>Semoga apa yang kamu inginkan tercapai ya sayang✨ Kamu kuat, kamu hebat. kagum sekali atas banyak hal yang kamu lakukan, atas apa yang kamu perjuangkan. Selama ini kamu menjaadi orang baik, selalu berusaha untuk bisa membantu orang lain. semoga segalanya kembali ke diri kamu lagi.</P> <P?>Aku gabisa menjabarkan banyak hal yang aku inginkan untuk kamu, tapi yang harus kamu tahu, aku ingin hidupmu lebih baik tanpa harus menuntut dan menyetir. Aku Ingin Melihat kamu bahagia dengan berada dititik puncak keinginan dalam hidup.</P> <P>Sudah 22 tahun, banyak sekali hari kamu hidup. Tentunya juga banyak penyesalan dan rasa syukur. Tolong jangan sepelekan hidumu lagi, tolong berusaha hidup lebih lama lagi.</P> <P>Saya Siti rahmah yulianto juga ingin mengucapkan maaf dan terimakasih. Maaf banyak merepotkanmu, dan terimakasih sudah mau direpotkan. Banyak doa, sepeerti yang ku bilang, tidak bisa kutuliskan satu persatu. </P> <P>Sekedar info juga, ya memang aku jatuh cinta sama kamu,ya walaupun memang masing mikir-mikir juga. bukan karna kurangmu, tapi karna traumaku. Tapi jikalau diperhatikan, ya memang sekarang aku sudah nyaman dengan adanya kamu. Kamu menyenangkan, kamu lucu, kamu menyebalkan. Tapi bagaimana itu situasinya, kamu berhasil membuat aku banyak ketawa. Aku senang atas adanya kamu disini. Dihidupku. </P> <P>Ya mungkin untuk sekarang aku belum bisa memberi kado yang membuat kamu tertegun ataupun barang mahal yang bisa dipake buat adu gengsi karna satu dan lain hal. Apapun aku akan beri untuk kamu jikalau aku bisa. Maafin aku atas banyaknya kurangku ya sayang. </P> <P>Once again, Happy Birthday baby. <br>I love you so bad💖<br/></P>
+    </div>
+    <div class="photo">
+      <video autoplay muted loop>
+        <source src="assets/video.mp4" type="video/mp4">
+        <!-- fallback -->
+        <img src="assets/foto.png" alt="Foto fallback">
+      </video>
+    </div>
+  </div>
+
+  <script>
+    
+    // Buat bintang
+    const starsContainer = document.querySelector('.stars');
+    for (let i=0; i<100; i++){
+      const star = document.createElement('div');
+      star.classList.add('star');
+      star.style.top = Math.random() * 100 + '%';
+      star.style.left = Math.random() * 100 + '%';
+      star.style.animationDuration = (Math.random()*2+1) + 's';
+      starsContainer.appendChild(star);
+    }
+
+    // Efek love
+    function createLove() {
+      const love = document.createElement('img');
+      love.src = "assets/foto.png"; // ganti dengan hati PNG
+      love.classList.add('love');
+      love.style.left = Math.random() * 90 + 'vw';
+      document.body.appendChild(love);
+      love.addEventListener('animationend', ()=> love.remove());
+    }
+
+    // Cek password
+    function checkPassword() {
+      const input = document.getElementById("passwordInput").value;
+      const correctPassword = "19082003"; // ganti sesuai keinginan
+      if(input === correctPassword){
+        document.getElementById("passwordBox").style.display = "none";
+        document.getElementById("contentBox").style.display = "flex";
+
+        // jalankan efek love setiap 2 detik
+        setInterval(createLove, 2000);
+      } else {
+        document.getElementById("errorMsg").style.display = "block";
+      }
+    }
+    
+  </script>
+  
+  <div id="hearts"></div>
+  <!-- Hujan love -->
+<div id="hearts-layer1"></div>
+<div id="hearts-layer2"></div>
+<div id="hearts-layer3"></div>
+
+</body>
+</html> 
